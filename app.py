@@ -1,13 +1,15 @@
-from typing import Optional
+from random import randint
 import uvicorn as uvicorn
 from fastapi import FastAPI
+from excuses import excuses
 
 app = FastAPI()
 
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    excuse = excuses[randint(0, len(excuses))]
+    return f"Excuse: {excuse}"
 
 
 if __name__ == "__main__":
