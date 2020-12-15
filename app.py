@@ -12,16 +12,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 
-@app.get("/")
-def read_root():
-    excuse = excuses[randint(0, len(excuses)-1)]
-    return f"Excuse: {excuse}"
-
-
-@app.get("/items/{id}", response_class=HTMLResponse)
-async def read_item(request: Request, id: str):
-    return templates.TemplateResponse("index.html", {"request": request, "id": id})
+@app.get("/", response_class=HTMLResponse)
+async def read_item(request: Request):
+    excuse = excuses[randint(0, len(excuses) - 1)]
+    return templates.TemplateResponse("index.html", {"request": request, "excuse": excuse})
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=80)

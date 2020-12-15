@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Cover Template · Bootstrap v5.0</title>
+    <title>Professional Excuser</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
 
@@ -43,20 +43,26 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
-      <h3 class="float-md-start mb-0">Cover</h3>
+      <h3 class="float-md-start mb-0">Professional Excuser</h3>
     </div>
   </header>
 
   <main class="px-3">
-    <h1>Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
-    </p>
+    <div class="container">
+      <h1>Your excuse of the day is...</h1>
+      <p class="lead">{{ excuse }} </p>
+    </div>
+    <div class="container" style="margin-top: 150px" >
+      <p class="lead">
+        <button onClick="window.location.reload();" class="btn btn-lg btn-secondary fw-bold border-white bg-white">another one!</button>
+      </p>
+    </div>
+
+
   </main>
 
   <footer class="mt-auto text-white-50">
-    <p>Bruno Lopes <a class="fa fa-instagram"></a> bruno_waitforit_lopes</a>.</p>
+    <p>Follow me at <a href="https://github.com/bioslikk/professional-excuser" class="fa fa-github"></a>  &  <a href="https://www.instagram.com/bruno_waitforit_lopes/" class="fa fa-instagram"></a></p>
   </footer>
 </div>
 
