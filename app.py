@@ -4,7 +4,7 @@ from fastapi import FastAPI, Request
 from excuses import excuses
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -17,6 +17,9 @@ async def read_item(request: Request):
     excuse = excuses[randint(0, len(excuses) - 1)]
     return templates.TemplateResponse("index.html", {"request": request, "excuse": excuse})
 
+@app.get("/excuses", response_class=JSONResponse)
+async def read_item(request: Request):
+    return JSONResponse(excuses)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=80)
